@@ -4,14 +4,25 @@ import Foundation
 
 // Initialization
 
-var yearlyFishPopulation = [Int: Int]()
-var yearlyBirdPopulation: [Int: Int] = [:]
+var someDictionary1 = [Int: Int]()
+var someDictionary2: [Int: Int] = [:]
 
 var dictionaryName = [
   "Key1": "Value1",
   "Key2": "Value2",
   "Key3": "Value3"
 ]
+
+print(dictionaryName.isEmpty)           // false
+print(someDictionary1.isEmpty)          // true
+print(dictionaryName.count)             // 3
+
+// print(dictionaryName["Key2"])        // Optional(Value2)
+
+if let value2 = dictionaryName["Key2"] {
+    print(value2)
+}
+// Prints: Value2
 
 // Keys should be unique
 
@@ -23,6 +34,11 @@ print(dictionaryName)
 dictionaryName["Key4"] = "Modified Value4"
 print(dictionaryName)
 // Prints: ["Key1": "Value1", "Key2": "Value2", "Key3": "Value3", "Key4": "Modified Value4"]
+
+// .updateValue()
+dictionaryName.updateValue("Modified Value3", forKey: "Key3")
+print(dictionaryName)
+// Prints: ["Key1": "Value1", "Key2": "Value2", "Key3": "Modified Value3", "Key4": "Modified Value4"]
 
 // Remove value by setting key to nil
 dictionaryName["Key4"] = nil

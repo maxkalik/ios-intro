@@ -87,6 +87,28 @@ default:
 
 // Prints: Restaurant delivery
 
+let stillAnotherPoint = (9, 0)
+switch stillAnotherPoint {
+case (let distance, 0), (0, let distance):
+    print("On an axis, \(distance) from the origin") // On an axis, 9 from the origin
+default:
+    print("Not on an axis")
+}
+
+
+// Fallthrough
+
+let integerToDescribe = 5
+var description = "The number \(integerToDescribe) is"
+switch integerToDescribe {
+case 2, 3, 5, 7, 11, 13, 17, 19:
+    description += " a prime number, and also"
+    fallthrough
+default:
+    description += " an integer."
+}
+print(description) // The number 5 is a prime number, and also an integer.
+
 
 // Logical operations are like everywhere
 

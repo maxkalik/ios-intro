@@ -26,19 +26,26 @@ mariana.gender = "woman"
 print(mariana.fullName)         // Mariana Stels
 print(mariana.greating())       // Hello Mariana Stels
 
+extension Person {
+    var yearOfBirth: Int {
+        2022 - age
+    }
+}
+
+print(mariana.yearOfBirth)      // 1996
+
 
 // This version of the Shape class is missing something important: an initializer to set up the class when an instance is created. Use init to create one.
-
 // Init -> it is like a constructor
 
 class Shape {
     var numberOfSides = 0
     let numbersOfDays = 10
-
+    
     func simpleDescription() -> String {
         "A shape with \(numberOfSides) sides."
     }
-
+    
     func getSidesAndDays() -> (sides: Int, days: Int) {
         (numberOfSides, numbersOfDays)
     }
@@ -163,7 +170,7 @@ print(somePersona.monthlySalary)            // 21833.333333333332 (20833 + 10000
 // Inheritence
 
 class Hero {
-
+    
     var heroName : String
     var heroAge : Int
     
@@ -216,3 +223,80 @@ print(someMonk.heroName)            // Lucius
 print(someMonk.attackSkill)         // 5
 someMonk.attack()
 print(someMonk.attackSkill)         // 15
+
+
+// Lazy variables
+
+class PersonObj {
+    var firstName: String
+    var lastName: String
+    
+    // lazy allows to "whait" when self will be accessed
+    lazy var lazyGreeting: String = "Hello, \(firstName) \(lastName)"
+    
+    init(firstName: String, lastName: String) {
+        self.firstName = firstName
+        self.lastName = lastName
+    }
+    
+    func greeting() -> String {
+        return "Hello, \(firstName) \(lastName)"
+    }
+}
+
+var max = PersonObj(firstName: "Max", lastName: "Kalik")
+print(max.greeting())     // Hello, Max Kalik
+print(max.lazyGreeting)   // without lazy: cannot use instance member 'firstName' within property initializer; property initializers run before 'self' is available
+print(max.lazyGreeting)   // with lazy: Hello, Max Kalik
+
+// static fanc vs. class func
+
+class FirstOne {
+    
+    // regular class func
+    func methodZero() -> String {
+        return "func - methodZero"
+    }
+    
+    // static func
+    class func methodOne() -> String {
+        return "class func - methodOne"
+    }
+    
+    // static class func
+    static func methodTwo() -> String {
+        return "static func - methodTwo"
+    }
+    
+    // final class func
+    final func methodFinal() -> String {
+        return "final func - methodFinal"
+    }
+}
+
+class SecondOne: FirstOne {
+    // it will apply in the all instances of the class FirstOne
+    override class func methodOne() -> String {
+        return "override class func in the SecondOne class - methodOne from FirstOne class"
+    }
+    
+    // cannot override static func
+    // override static func methodTwo()
+    
+    // cannot override final func
+    // override final func methodFinal()
+    
+    override func methodZero() -> String {
+        return "override func in the SecondOne class - methodZero from FristOne Class"
+    }
+}
+
+print(SecondOne.methodOne()) // override class func in the SecondOne class - methodOne from FirstOne class
+
+// print(SecondOne.methodZero()) // instance member 'methodZero' cannot be used on type 'SecondOne'; did you mean to use a value of this type instead?
+// so we have to create instance
+var instanceOne = FirstOne()
+print(instanceOne.methodZero()) // func - methodZero
+
+var instanceTwo = SecondOne()
+print(instanceTwo.methodZero()) // override func in the SecondOne class - methodZero from FristOne Class
