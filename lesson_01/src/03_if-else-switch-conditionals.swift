@@ -88,7 +88,16 @@ default:
 // Prints: Restaurant delivery
 
 
-// Logical
+// Logical operations are like everywhere
 
-print(!true)
-print(!false)
+print(!true)          // false
+print(!false)         // true
+print(true && true)   // true
+print(true && false)  // false
+print(false || true)  // true
+print(false || false) // false
+
+// Parentheses
+
+print(true || true && false || false)     // true
+print((true || true) && (false || false)) // false

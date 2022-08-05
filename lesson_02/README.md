@@ -1,4 +1,4 @@
-# iOS
+# iOS, UIKit
 
 ## What you will learn
 
@@ -10,7 +10,7 @@
 
 > What is in iOS?
 
-### Stack:
+## Stack:
 **CoreOS** -> **Core Services** -> **Media** -> **Cocoa Touch**
 
 ### Core OS

@@ -24,7 +24,7 @@ To start this course you need to have:
 ## Lessons
 
 - [Lesson 01: Swift Programming Language](./lesson_01/)
-- [Lesson 02: Swift Introduction](./lesson_02/)
+- [Lesson 02: iOS, UIKit](./lesson_02/)
 - [Lesson 03: Swift Introduction](./lesson_03/)
 - [Lesson 04: Swift Introduction](./lesson_04/)
 - [Lesson 05: Swift Introduction](./lesson_05/)
