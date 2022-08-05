@@ -6,9 +6,9 @@ let a: Int = 10
 var b: Int = 20
 
 if a > b {
-  print("A greather then B")
+    print("A greather then B")
 } else {
-  print("B greather then A")
+    print("B greather then A")
 }
 
 // Prints: B greather then A
@@ -16,20 +16,22 @@ if a > b {
 b = 10
 
 if a > b {
-  print("A greather then B")
+    print("A greather then B")
 } else if a < b {
-  print("B greather then A")
+    print("B greather then A")
 } else {
-  print("A and B are equal")
+    print("A and B are equal")
 }
 
 // Prints: A and B are equal
 
+
 // Ternary Conditional Operator
 
-a == b ? print("A equals B") : print("A doesn't equal B") 
- 
+a == b ? print("A equals B") : print("A doesn't equal B")
+
 // Prints: A equals B
+
 
 // Switch Statement
 
@@ -45,7 +47,7 @@ default:
 
 // Prints: "The last letter of the alphabet"
 
-// Interval Matching
+// Switch Statement: Interval Matching
 
 let approximateCount = 62
 let countedThings = "moons orbiting Saturn"
@@ -66,4 +68,27 @@ default:
 }
 print("There are \(naturalCount) \(countedThings).")
 
-// Prints "There are dozens of moons orbiting Saturn."
+// Prints: "There are dozens of moons orbiting Saturn."
+
+// Switch Statement: Compound Cases
+
+let service = "DoorDash"
+
+switch service {
+case "Uber", "Bolt":
+    print("Taxi")
+case "Bolt Food", "DoorDash", "Wolt":
+    print("Food delivery")
+case "UPS", "DHL":
+    print("Delivery")
+default:
+    print("Unknown service")
+}
+
+// Prints: Restaurant delivery
+
+
+// Logical
+
+print(!true)
+print(!false)
