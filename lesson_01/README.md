@@ -10,6 +10,12 @@
 - Types
 - Optionals
 - if else switch
+- Arrays
+- Dictionaries
+- Loops
+- Functions
+- Classes
+- Structures
 
 - [Swift Documentation](https://docs.swift.org/swift-book/)
 - [Apple about Swift](https://developer.apple.com/swift/)

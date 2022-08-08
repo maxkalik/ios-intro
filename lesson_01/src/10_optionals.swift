@@ -9,8 +9,6 @@ var optionalString : String?
 // String       -> just usual string
 // String?      -> it's an optional string (it means in a variable you probably couldn't find a value string)
 
-// -------
-
 /*
 // so an Optional is just an enum - it essentially looks like this
 enum Optional<T> {           // a generic type, like Array<Element> or Dictionary<Key, Value>

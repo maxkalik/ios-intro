@@ -24,8 +24,8 @@ To start this course you need to have:
 ## Lessons
 
 - [Lesson 01: Swift Programming Language](./lesson_01/)
-- [Lesson 02: iOS, UIKit](./lesson_02/)
-- [Lesson 03: Swift Introduction](./lesson_03/)
-- [Lesson 04: Swift Introduction](./lesson_04/)
-- [Lesson 05: Swift Introduction](./lesson_05/)
-- [Lesson 06: Swift Introduction](./lesson_06/)
+- [Lesson 02: iOS, UIKit, MVC](./lesson_02/)
+- [Lesson 03: Simple Application using UIKit](./lesson_03/)
+- [Lesson 04: MVVM, SwiftUI, Simple Application using SwiftUI](./lesson_04/)
+- [Lesson 05: Currency App using SwiftUI](./lesson_05/)
+- [Lesson 06: TODO List using SwiftUI and Firebase](./lesson_06/)

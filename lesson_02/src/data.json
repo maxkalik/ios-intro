@@ -1,0 +1,42 @@
+[
+  {
+    "word": "Chao",
+    "translation": "Hello",
+    "id": "01"
+  },
+  {
+    "word": "Maja",
+    "translation": "Home",
+    "id": "02"
+  },
+  {
+    "word": "Zeid",
+    "translation": "Flower",
+    "id": "03"
+  },
+  {
+    "word": "Udens",
+    "translation": "Water",
+    "id": "04"
+  },
+  {
+    "word": "Vards",
+    "translation": "Word",
+    "id": "05"
+  },
+  {
+    "word": "Darbs",
+    "translation": "Work",
+    "id": "06"
+  },
+  {
+    "word": "Plapa",
+    "translation": "Chatter",
+    "id": "07"
+  },
+  {
+    "word": "Pele",
+    "translation": "Mouse",
+    "id": "08"
+  }
+]
