@@ -27,7 +27,6 @@ var container = fridgeContains("eggs")
 print(container) // true // because inside of the func true
 print(fridgeIsOpen) // false
 
-
 func deferTest() -> String {
     var currentString = ""
     currentString += "A"              // 1
