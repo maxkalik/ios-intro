@@ -9,10 +9,13 @@ import UIKit
 
 class ViewController: UIViewController {
     
+//    lazy var wordLabel = UILabel()
+//    let words: [String] = ["xcode", "ios", "playground", "iphone", "ipdad", "device"]
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
-        
+
         let magicButton = UIButton(type: .system)
         magicButton.setTitle("Magic Button", for: .normal)
         magicButton.backgroundColor = .white
@@ -26,10 +29,28 @@ class ViewController: UIViewController {
             magicButton.centerXAnchor.constraint(equalTo: view.centerXAnchor),
             magicButton.centerYAnchor.constraint(equalTo: view.centerYAnchor)
         ])
+
+//        wordLabel.text = words.randomElement()
+//        wordLabel.textColor = .white
+//        wordLabel.font = .systemFont(ofSize: 24, weight: .bold)
+//        wordLabel.translatesAutoresizingMaskIntoConstraints = false
+//        view.addSubview(wordLabel)
+//
+//        NSLayoutConstraint.activate([
+//            wordLabel.centerXAnchor.constraint(equalTo: view.centerXAnchor),
+//            wordLabel.bottomAnchor.constraint(equalTo: magicButton.topAnchor, constant: -20)
+//        ])
+        
+        changeBackgroundColor()
     }
     
     @objc
     func onTap() {
+        changeBackgroundColor()
+//        wordLabel.text = words.randomElement()
+    }
+    
+    func changeBackgroundColor() {
         view.backgroundColor = UIColor(
             red: .random(in: 0...1),
             green: .random(in: 0...1),

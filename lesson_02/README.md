@@ -2,7 +2,7 @@
 
 ## What you will learn
 
-- iOS
+- Access Control, Closures, ARC, Codable, Defer, Protocols
 - Tools: xCode
 - Foundation
 - MVC Architecture
