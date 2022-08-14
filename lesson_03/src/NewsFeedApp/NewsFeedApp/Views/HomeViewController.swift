@@ -44,11 +44,20 @@ class HomeViewController: UIViewController {
 
 extension HomeViewController {
     func setupViews() {
-        title = viewModel.title
-        navigationController?.navigationBar.prefersLargeTitles = true
+        setupNavigationBar()
         
         view.addSubview(tableView)
         view.addSubview(activityIndicatorView)
+    }
+    
+    func setupNavigationBar() {
+        title = viewModel.title
+        
+        navigationController?.navigationBar.prefersLargeTitles = true
+        guard let titleTextFont = UIFont.titleFontSize(size: 17),
+              let largeTitleTextFoont = UIFont.titleFontSize(size: 34) else { return }
+        navigationController?.navigationBar.titleTextAttributes = [.font: titleTextFont]
+        navigationController?.navigationBar.largeTitleTextAttributes = [.font: largeTitleTextFoont]
     }
 }
 

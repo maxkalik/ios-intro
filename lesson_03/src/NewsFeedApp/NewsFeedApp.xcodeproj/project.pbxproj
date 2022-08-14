@@ -18,6 +18,8 @@
 		1106773428A85E7500BE885F /* Article.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1106773328A85E7500BE885F /* Article.swift */; };
 		1106773A28A871CE00BE885F /* Date.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1106773928A871CE00BE885F /* Date.swift */; };
 		1106773C28A87D8900BE885F /* URLSession.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1106773B28A87D8900BE885F /* URLSession.swift */; };
+		1106773E28A93C6700BE885F /* UIFont.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1106773D28A93C6700BE885F /* UIFont.swift */; };
+		1106774028A9422600BE885F /* ArticleViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1106773F28A9422600BE885F /* ArticleViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -34,6 +36,8 @@
 		1106773328A85E7500BE885F /* Article.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Article.swift; sourceTree = "<group>"; };
 		1106773928A871CE00BE885F /* Date.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Date.swift; sourceTree = "<group>"; };
 		1106773B28A87D8900BE885F /* URLSession.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URLSession.swift; sourceTree = "<group>"; };
+		1106773D28A93C6700BE885F /* UIFont.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIFont.swift; sourceTree = "<group>"; };
+		1106773F28A9422600BE885F /* ArticleViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArticleViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -100,6 +104,7 @@
 			children = (
 				1106772C28A852A300BE885F /* ArticleCell.swift */,
 				1106771C28A851BE00BE885F /* HomeViewController.swift */,
+				1106773F28A9422600BE885F /* ArticleViewController.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -118,6 +123,7 @@
 			children = (
 				1106773928A871CE00BE885F /* Date.swift */,
 				1106773B28A87D8900BE885F /* URLSession.swift */,
+				1106773D28A93C6700BE885F /* UIFont.swift */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -197,9 +203,11 @@
 				1106771D28A851BE00BE885F /* HomeViewController.swift in Sources */,
 				1106773A28A871CE00BE885F /* Date.swift in Sources */,
 				1106772D28A852A300BE885F /* ArticleCell.swift in Sources */,
+				1106774028A9422600BE885F /* ArticleViewController.swift in Sources */,
 				1106773C28A87D8900BE885F /* URLSession.swift in Sources */,
 				1106771928A851BE00BE885F /* AppDelegate.swift in Sources */,
 				1106772F28A852F600BE885F /* HomeViewModel.swift in Sources */,
+				1106773E28A93C6700BE885F /* UIFont.swift in Sources */,
 				1106771B28A851BE00BE885F /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

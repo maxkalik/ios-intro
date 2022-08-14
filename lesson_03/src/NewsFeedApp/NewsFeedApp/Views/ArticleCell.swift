@@ -15,7 +15,7 @@ class ArticleCell: UITableViewCell {
         label.numberOfLines = 0
         label.lineBreakMode = .byWordWrapping
         label.translatesAutoresizingMaskIntoConstraints = false
-        label.font = UIFont(name: "HelveticaNeue-CondensedBlack", size: 22)
+        label.font = UIFont.titleFontSize(size: 22)
         return label
     }()
     
