@@ -11,8 +11,11 @@ class HomeViewController: UIViewController {
 
     lazy var viewModel = HomeViewModel()
     
-    lazy var listTableView: UITableView = {
+    lazy var tableView: UITableView = {
         let tableView = UITableView(frame: .zero)
+        tableView.delegate = self
+        tableView.dataSource = self
+        tableView.register(ArticleCell.self, forCellReuseIdentifier: ArticleCell.identifier)
         tableView.translatesAutoresizingMaskIntoConstraints = false
         return tableView
     }()
@@ -23,14 +26,10 @@ class HomeViewController: UIViewController {
         title = viewModel.title
         navigationController?.navigationBar.prefersLargeTitles = true
         
-        view.addSubview(listTableView)
-        
-        listTableView.delegate = self
-        listTableView.dataSource = self
+        view.addSubview(tableView)
 
-        listTableView.register(ArticleCell.self, forCellReuseIdentifier: ArticleCell.identifier)
-        
-//        viewModel.getNews()
+        viewModel.viewDelegate = self
+        viewModel.getNews()
         
         setupConstrains()
     }
@@ -49,15 +48,33 @@ extension HomeViewController: UITableViewDelegate {
 
 extension HomeViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return viewModel.news.count
+        return viewModel.articles.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         if let cell = tableView.dequeueReusableCell(withIdentifier: ArticleCell.identifier, for: indexPath) as? ArticleCell {
-            cell.configure(article: viewModel.news[indexPath.row])
+            cell.configure(article: viewModel.articles[indexPath.row])
             return cell
         } else {
             return UITableViewCell()
+        }
+    }
+}
+
+// MARK: - HomeViewModelViewDelegate
+
+extension HomeViewController: HomeViewModelViewDelegate {
+    func homeViewModelNewsDidFetch() {
+        DispatchQueue.main.async {
+            self.tableView.reloadData()
+        }
+    }
+    
+    func homeViewModelDidRecieveError(_ errorMsg: String) {
+        let alert = UIAlertController(title: "Error", message: errorMsg, preferredStyle: .alert)
+        alert.addAction(UIAlertAction(title: "Ok", style: .default))
+        DispatchQueue.main.async { [weak self] in
+            self?.present(alert, animated: true, completion: nil)
         }
     }
 }
@@ -67,10 +84,10 @@ extension HomeViewController: UITableViewDataSource {
 extension HomeViewController {
     func setupConstrains() {
         NSLayoutConstraint.activate([
-            listTableView.topAnchor.constraint(equalTo: view.topAnchor),
-            listTableView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
-            listTableView.bottomAnchor.constraint(equalTo: view.bottomAnchor),
-            listTableView.leadingAnchor.constraint(equalTo: view.leadingAnchor)
+            tableView.topAnchor.constraint(equalTo: view.topAnchor),
+            tableView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
+            tableView.bottomAnchor.constraint(equalTo: view.bottomAnchor),
+            tableView.leadingAnchor.constraint(equalTo: view.leadingAnchor)
         ])
     }
 }

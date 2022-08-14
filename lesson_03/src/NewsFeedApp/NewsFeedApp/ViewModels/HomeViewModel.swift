@@ -7,32 +7,57 @@
 
 import Foundation
 
+protocol HomeViewModelViewDelegate: AnyObject {
+    func homeViewModelNewsDidFetch()
+    func homeViewModelDidRecieveError(_ errorMsg: String)
+}
+
+enum NetworkServiceError: Error {
+    case apiError
+    case endpointError
+    case noData
+    case decodeError
+    case error(Error)
+    
+    var message: String {
+        switch self {
+        case .apiError:
+            return "Something wrong with API"
+        case .endpointError:
+            return "Something wrong with endpoint"
+        case .noData:
+            return "No data"
+        case .decodeError:
+            return "Bad decoding"
+        case .error(let error):
+            return error.localizedDescription
+        }
+    }
+}
+
 class HomeViewModel {
 
+    weak var viewDelegate: HomeViewModelViewDelegate?
+
     private let apiKey = "9e464d6eb08644e3acb3efaf9e5c1ae7"
-    var news: [Article] = [
-        Article(
-            author: "Elizabeth  Washington",
-            title: "Cleaning service employee charged for fatally assaulting coworker at GM Orion Assembly plant, police say - WDIV ClickOnDetroit",
-            description: "Olaf Scholz versuchte in der Sommer-Pressekonferenz die Energiesituation zu beschwichtigen. „Wir werden immer genug kriegen, darum geht es ja.“ Einen „Wut-Winter“ wegen hoher Energiepreise, sieht er nicht. Die Finanzmärkte sprechen eine ganz andere Sprache.",
-            url: "",
-            publishedAt: "2022-08-13T18:02:19Z"
-        ),
-        Article(
-            author: "Griffin Kelly",
-            title: "Woke' NYC Starbucks now a haven for junkies, drunks and homeless - New York Post",
-            description: "The man suspected of stabbing Salman Rushdie at an event in the United States on Friday has been charged with attempted murder.",
-            url: "",
-            publishedAt: "2022-08-13T17:41:00Z"
-        ),
-        Article(
-            author: "Unknown",
-            title: "Former Deutsche Bank co-CEO Anshu Jain dies - Reuters",
-            description: "The court-authorized search was a remarkable moment for Donald Trump, and a turning point in his relationship with the Justice Department.",
-            url: "",
-            publishedAt: "2022-08-13T17:08:00Z"
-        )
-    ]
+    private lazy var url: URL? = {
+        var urlComponents = URLComponents()
+        urlComponents.scheme = "https"
+        urlComponents.host = "newsapi.org"
+        // urlComponents.path = "/v2/top-headlines"
+        urlComponents.path = "/v2/everything"
+        urlComponents.queryItems = [
+            URLQueryItem(name: "q", value: "apple"),
+            URLQueryItem(name: "from", value: "2022-08-13"),
+            URLQueryItem(name: "sortBy", value: "popularity"),
+//            URLQueryItem(name: "country", value: "us"),
+            URLQueryItem(name: "apiKey", value: apiKey)
+        ]
+        return urlComponents.url
+    }()
+    
+    
+    var articles: [Article] = []
     
     var title: String {
         let now = Date()
@@ -41,19 +66,53 @@ class HomeViewModel {
         return "News • " + dateFormatter.string(from: now)
     }
     
-    func getNews() {
+    func fetchNews(url: URL?, completion: @escaping (Result<News, NetworkServiceError>) -> Void) {
+        guard let url = url else {
+            completion(.failure(.endpointError))
+            return
+        }
         
-        guard let url = URL(string: "https://newsapi.org/v2/top-headlines?q=apple&sortBy=popularity?country=us&apiKey=\(apiKey)") else { return }
         let session = URLSession.shared
-        let dataTask = session.dataTask(with: url) { data, response, error in
-            if (error != nil) {
-                print(error)
-            } else {
-                if let data = data, let values = try? JSONDecoder().decode(News.self, from: data) {
-                    print(values.articles.count, values.totalResults)
-                } 
+        session.dataTask(with: url) { result in
+            switch result {
+            case .success(let (response, data)):
+                guard let statusCode = (response as? HTTPURLResponse)?.statusCode, 200..<299 ~= statusCode else {
+                    completion(.failure(.apiError))
+                    return
+                }
+                
+                do {
+                    let values = try JSONDecoder().decode(News.self, from: data)
+                    if values.articles.isEmpty {
+                        completion(.failure(.noData))
+                        return
+                    }
+                    completion(.success(values))
+                } catch {
+                    debugPrint(error.localizedDescription)
+                    completion(.failure(.decodeError))
+                }
+            case .failure(let error):
+                debugPrint(error.localizedDescription)
+                completion(.failure(.error(error)))
             }
         }
-        dataTask.resume()
+        .resume()
+    }
+    
+    func getNews() {
+        fetchNews(url: self.url) { result in
+            DispatchQueue.main.async { [weak self] in
+                guard let self = self else { return }
+                switch result {
+                case .success(let news):
+                    self.articles = news.articles
+                    self.viewDelegate?.homeViewModelNewsDidFetch()
+                case .failure(let error):
+                    print(error)
+                    self.viewDelegate?.homeViewModelDidRecieveError(error.message)
+                }
+            }
+        }
     }
 }
