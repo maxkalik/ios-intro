@@ -21,5 +21,6 @@
 2. An image should be get from the web
 3. Prepare an array of url of images (for example 3)
 4. Tapping on the UIButton should change an image by order from array.
+5. Images should be cached if the will appear on the screen
 
-> You can get image from https://unsplash.com
+> You can get images from https://unsplash.com

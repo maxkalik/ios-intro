@@ -9,6 +9,23 @@
 - UIKit
 - Accessing Documentation from our code
 
+## iOS Application which you will build
+- **MagicButton** - simple button that changes backround color randomly
+  - During building this app you will learn how to start the project from scratch
+  - You will be able to make a project with / without storyboards
+  - You will learn how to make a `UIButton` and layout using constrains
+- **SimpleDelegate** - example how and why we need Delegates
+  - You will learn why we need week references between objects
+  - `UILabel` styling
+  - How to use `UITextView`
+- **TableViewExample** - `UITableView` one of the most usable controllers in iOS
+- **PhotoCollection** - An application with collection of photos
+  - `UIImageView` and `UIImage`
+- **ImageFromWeb**
+  - How to fetch image data from the web and show it in the view
+  - How to cache image
+
+
 > What is in iOS?
 
 ## Stack:
@@ -38,7 +55,7 @@
 **Controller** - Ruller, Connector between the Model and View.
             - Control the data in the view
 
-> What wrong with MVC?
+> What is wrong with MVC?
 
 - Controller becomes a massive.
 - Too many responsibilities concentrated in the controller.
