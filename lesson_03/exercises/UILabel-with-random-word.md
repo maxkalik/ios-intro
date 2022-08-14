@@ -1,11 +1,11 @@
-# News Feed
+# News Feed App
 
 1. Create your own News Feed app using https://newsapi.org
-2. Sort new by date
+2. News should be sorted by date
 3. Update ArticleViewController
   - Add UILabel - Title of Article
   - Add UILabel or UITextView to show full text of Article. JSON field is - `content`
-  - Add UIImage using URL of image. JSON field is - `urlToImage`
+  - Add UIImageView using URL of image. JSON field is - `urlToImage`
 
 ```json
 {

@@ -9,6 +9,7 @@ import UIKit
 
 class ViewController: UIViewController {
     
+    // Make an array with names like ["01", "02", "03" ... ]
     private let imageNames: [String] = (1...20).map { String(format: "%02d", $0) }
     
     private let collectionView = UICollectionView(
