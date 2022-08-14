@@ -10,6 +10,7 @@ import Foundation
 protocol HomeViewModelViewDelegate: AnyObject {
     func homeViewModelNewsDidFetch()
     func homeViewModelDidRecieveError(_ errorMsg: String)
+    func homeViewModelShouldShowLoading(_ isLoading: Bool)
 }
 
 enum NetworkServiceError: Error {
@@ -101,6 +102,8 @@ class HomeViewModel {
     }
     
     func getNews() {
+        viewDelegate?.homeViewModelShouldShowLoading(true)
+        
         fetchNews(url: self.url) { result in
             DispatchQueue.main.async { [weak self] in
                 guard let self = self else { return }
@@ -108,9 +111,10 @@ class HomeViewModel {
                 case .success(let news):
                     self.articles = news.articles
                     self.viewDelegate?.homeViewModelNewsDidFetch()
+                    self.viewDelegate?.homeViewModelShouldShowLoading(false)
                 case .failure(let error):
-                    print(error)
                     self.viewDelegate?.homeViewModelDidRecieveError(error.message)
+                    self.viewDelegate?.homeViewModelShouldShowLoading(false)
                 }
             }
         }

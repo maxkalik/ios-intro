@@ -9,7 +9,11 @@ import UIKit
 
 class HomeViewController: UIViewController {
 
-    lazy var viewModel = HomeViewModel()
+    lazy var viewModel: HomeViewModel = {
+        let viewModel = HomeViewModel()
+        viewModel.viewDelegate = self
+        return viewModel
+    }()
     
     lazy var tableView: UITableView = {
         let tableView = UITableView(frame: .zero)
@@ -20,22 +24,35 @@ class HomeViewController: UIViewController {
         return tableView
     }()
     
+    lazy var activityIndicatorView: UIActivityIndicatorView = {
+        let activityIndicatorView = UIActivityIndicatorView()
+        activityIndicatorView.hidesWhenStopped = true
+        activityIndicatorView.translatesAutoresizingMaskIntoConstraints = false
+        activityIndicatorView.transform = CGAffineTransform.init(scaleX: 1.5, y: 1.5)
+        return activityIndicatorView
+    }()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        setupViews()
+        setupConstrains()
+        viewModel.getNews()
+    }
+}
 
+// MARK: - Setup Views
+
+extension HomeViewController {
+    func setupViews() {
         title = viewModel.title
         navigationController?.navigationBar.prefersLargeTitles = true
         
         view.addSubview(tableView)
-
-        viewModel.viewDelegate = self
-        viewModel.getNews()
-        
-        setupConstrains()
+        view.addSubview(activityIndicatorView)
     }
 }
 
-// MARK - UITableViewDelegate
+// MARK: - UITableViewDelegate
 
 extension HomeViewController: UITableViewDelegate {
     // Make height of the row based on content
@@ -44,7 +61,7 @@ extension HomeViewController: UITableViewDelegate {
     }
 }
 
-// MARK - UITableViewDataSource
+// MARK: - UITableViewDataSource
 
 extension HomeViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -77,6 +94,14 @@ extension HomeViewController: HomeViewModelViewDelegate {
             self?.present(alert, animated: true, completion: nil)
         }
     }
+    
+    func homeViewModelShouldShowLoading(_ isLoading: Bool) {
+        if isLoading {
+            activityIndicatorView.startAnimating()
+        } else {
+            activityIndicatorView.stopAnimating()
+        }
+    }
 }
 
 // MARK: - Constrains
@@ -87,7 +112,10 @@ extension HomeViewController {
             tableView.topAnchor.constraint(equalTo: view.topAnchor),
             tableView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
             tableView.bottomAnchor.constraint(equalTo: view.bottomAnchor),
-            tableView.leadingAnchor.constraint(equalTo: view.leadingAnchor)
+            tableView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
+            
+            activityIndicatorView.centerXAnchor.constraint(equalTo: view.centerXAnchor),
+            activityIndicatorView.centerYAnchor.constraint(equalTo: view.centerYAnchor)
         ])
     }
 }
