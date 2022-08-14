@@ -9,11 +9,7 @@ import UIKit
 
 class HomeViewController: UIViewController {
 
-    lazy var viewModel: HomeViewModel = {
-        let viewModel = HomeViewModel()
-        viewModel.viewDelegate = self
-        return viewModel
-    }()
+    var viewModel: HomeViewModel
     
     lazy var tableView: UITableView = {
         let tableView = UITableView(frame: .zero)
@@ -31,6 +27,16 @@ class HomeViewController: UIViewController {
         activityIndicatorView.transform = CGAffineTransform.init(scaleX: 1.5, y: 1.5)
         return activityIndicatorView
     }()
+    
+    init(viewModel: HomeViewModel) {
+        self.viewModel = viewModel
+        super.init(nibName: nil, bundle: nil)
+        self.viewModel.viewDelegate = self
+    }
+    
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -88,8 +94,6 @@ extension HomeViewController: UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let articleViewController = ArticleViewController()
-        navigationController?.pushViewController(articleViewController, animated: true)
         viewModel.didSelectArticle(at: indexPath.row)
     }
 }

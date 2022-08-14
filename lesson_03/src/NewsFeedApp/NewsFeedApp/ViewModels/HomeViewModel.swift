@@ -13,6 +13,10 @@ protocol HomeViewModelViewDelegate: AnyObject {
     func homeViewModelShouldShowLoading(_ isLoading: Bool)
 }
 
+protocol HomeViewModelCoordinatorDelegate: Coordinator {
+    func homeViewModelShowArticle()
+}
+
 enum NetworkServiceError: Error {
     case apiError
     case endpointError
@@ -39,7 +43,8 @@ enum NetworkServiceError: Error {
 class HomeViewModel {
 
     weak var viewDelegate: HomeViewModelViewDelegate?
-
+    weak var coordinatorDelegate: HomeViewModelCoordinatorDelegate?
+    
     private let apiKey = "9e464d6eb08644e3acb3efaf9e5c1ae7"
     private lazy var url: URL? = {
         var urlComponents = URLComponents()
@@ -129,6 +134,6 @@ class HomeViewModel {
     }
     
     func didSelectArticle(at index: Int) {
-        print(articles[index])
+        coordinatorDelegate?.homeViewModelShowArticle()
     }
 }
