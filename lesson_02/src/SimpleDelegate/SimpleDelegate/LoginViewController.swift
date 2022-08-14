@@ -15,6 +15,10 @@ class LoginViewController: UIViewController {
     
     weak var delegate: LoginViewControllerDelegate?
     
+    deinit {
+        print("DEINIT", self)
+    }
+    
     lazy var emailTextField: UITextField = {
         let textField = UITextField()
         textField.placeholder = "example@email.com"

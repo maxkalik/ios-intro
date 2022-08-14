@@ -2,7 +2,10 @@
 
 1. Create your own News Feed app using https://newsapi.org
 2. Sort new by date
-3. Update ArticleViewController and use content in Artcile object to show full text of article:
+3. Update ArticleViewController
+  - Add UILabel - Title of Article
+  - Add UILabel or UITextView to show full text of Article. JSON field is - `content`
+  - Add UIImage using URL of image. JSON field is - `urlToImage`
 
 ```json
 {
@@ -19,4 +22,3 @@
   "content": "Top Angebote bei Höffner: Am Montag (15.8.) gibt's Gartenmöbel zu Hammerpreisen. Darunter Tische, Stühle, Balkonsets, Hocker, Hängesessel, Bänke, Pavillons.Deutschland Großer Abverkauf bei Höffner! A… [+6462 chars]"
 }
 ```
-

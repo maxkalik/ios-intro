@@ -30,12 +30,6 @@ class HomeViewController: UIViewController {
         return button
     }()
     
-    lazy var loginViewController: LoginViewController = {
-        let viewController = LoginViewController()
-        viewController.delegate = self
-        return viewController
-    }()
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -60,7 +54,10 @@ class HomeViewController: UIViewController {
     @objc
     func signInTapped() {
         // self.loginViewController.modalPresentationStyle = .fullScreen
-        present(self.loginViewController, animated: true)
+        
+        let loginViewController = LoginViewController()
+        loginViewController.delegate = self
+        present(loginViewController, animated: true)
     }
 }
 
