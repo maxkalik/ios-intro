@@ -7,14 +7,21 @@
 
 import Foundation
 
+// MARK: - Protocol
+
+protocol ArticleViewModel {
+    var rightBarButtonTitle: String { get }
+
+    func rightBarButtonTap()
+}
+
+// MARK: - Delegates
+
 protocol ArticleViewModelCoordinatorDelegate: Coordinator {
 
 }
 
-protocol ArticleViewModel {
-    var rightBarButtonTitle: String { get }
-    func rightBarButtonTap()
-}
+// MARK: - Implementation
 
 final class ArticleViewModelImplementation: ArticleViewModel {
 
