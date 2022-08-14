@@ -60,6 +60,10 @@ class HomeViewModel {
     
     var articles: [Article] = []
     
+    var numberOfRows: Int {
+        articles.count
+    }
+    
     var title: String {
         let now = Date()
         let dateFormatter = DateFormatter()
@@ -118,5 +122,13 @@ class HomeViewModel {
                 }
             }
         }
+    }
+    
+    func article(at index: Int) -> Article? {
+        articles.indices.contains(index) ? articles[index] : nil
+    }
+    
+    func didSelectArticle(at index: Int) {
+        print(articles[index])
     }
 }
