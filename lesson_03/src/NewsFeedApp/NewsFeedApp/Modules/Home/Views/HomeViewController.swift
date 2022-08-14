@@ -85,7 +85,7 @@ extension HomeViewController: UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         if let cell = tableView.dequeueReusableCell(withIdentifier: ArticleCell.identifier, for: indexPath) as? ArticleCell,
-           let article = viewModel.article(at: indexPath.row) {
+           let article = viewModel.articleCell(at: indexPath.row) {
             cell.configure(viewModel: article)
             return cell
         } else {

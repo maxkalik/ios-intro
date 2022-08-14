@@ -15,7 +15,7 @@ protocol HomeViewModel {
     var title: String { get }
     
     func getNews()
-    func article(at index: Int) -> ArticleCellViewModel?
+    func articleCell(at index: Int) -> ArticleCellViewModel?
     func didSelectArticle(at index: Int)
 }
 
@@ -28,7 +28,7 @@ protocol HomeViewModelViewDelegate: AnyObject {
 }
 
 protocol HomeViewModelCoordinatorDelegate: Coordinator {
-    func homeViewModelShowArticle()
+    func homeViewModelShowArticle(_ article: Article)
 }
 
 // MARK: - Implementation
@@ -39,7 +39,7 @@ final class HomeViewModelImplementation: HomeViewModel {
     weak var coordinatorDelegate: HomeViewModelCoordinatorDelegate?
     
     private lazy var networkService = NetworkService()
-    private var articles: [ArticleCellViewModel] = []
+    private var articles: [Article] = []
     
     var numberOfRows: Int {
         articles.count
@@ -60,9 +60,7 @@ final class HomeViewModelImplementation: HomeViewModel {
                 guard let self = self else { return }
                 switch result {
                 case .success(let news):
-                    self.articles = news.articles.compactMap {
-                        ArticleCellViewModelImplementation(model: $0)
-                    }
+                    self.articles = news.articles
                     self.viewDelegate?.homeViewModelNewsDidFetch()
                     self.viewDelegate?.homeViewModelShouldShowLoading(false)
                 case .failure(let error):
@@ -73,11 +71,22 @@ final class HomeViewModelImplementation: HomeViewModel {
         }
     }
     
-    func article(at index: Int) -> ArticleCellViewModel? {
+    func article(at index: Int) -> Article? {
         articles.indices.contains(index) ? articles[index] : nil
     }
     
+    func articleCell(at index: Int) -> ArticleCellViewModel? {
+        guard let article = article(at: index) else {
+            return nil
+        }
+        return ArticleCellViewModelImplementation(model: article)
+    }
+    
     func didSelectArticle(at index: Int) {
-        coordinatorDelegate?.homeViewModelShowArticle()
+        guard let article = article(at: index) else {
+            viewDelegate?.homeViewModelDidRecieveError("Cannot open article. Something went wrong")
+            return
+        }
+        coordinatorDelegate?.homeViewModelShowArticle(article)
     }
 }

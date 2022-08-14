@@ -19,4 +19,8 @@ public extension Coordinator {
     func didFinish() {
         navigationController?.popViewController(animated: true)
     }
+    
+    func open(url: URL) {
+        UIApplication.shared.open(url)
+    }
 }

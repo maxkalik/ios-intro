@@ -26,17 +26,24 @@ final class HomeCoordinatorImplementation: HomeCoordinator {
         navigationController?.pushViewController(viewController, animated: true)
     }
     
-    func showArticle() {
-        let viewModel = ArticleViewModelImplementation()
+    func showArticle(_ article: Article) {
+        let viewModel = ArticleViewModelImplementation(article: article)
+        viewModel.coordinatorDelegate = self
         let viewController = ArticleViewController(viewModel: viewModel)
         navigationController?.pushViewController(viewController, animated: true)
     }
 }
 
-// MARK: - HomeView
+// MARK: - HomeViewModelCoordinatorDelegate
 
 extension HomeCoordinatorImplementation: HomeViewModelCoordinatorDelegate {
-    func homeViewModelShowArticle() {
-        showArticle()
+    func homeViewModelShowArticle(_ article: Article) {
+        showArticle(article)
     }
+}
+
+// MARK: - ArticleViewModelCoordinatorDelegate
+
+extension HomeCoordinatorImplementation: ArticleViewModelCoordinatorDelegate {
+    
 }

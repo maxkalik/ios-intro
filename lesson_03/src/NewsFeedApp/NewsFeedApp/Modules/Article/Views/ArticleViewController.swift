@@ -28,5 +28,16 @@ final class ArticleViewController: UIViewController {
         super.viewDidLoad()
         
         view.backgroundColor = .white
+        navigationItem.rightBarButtonItem = UIBarButtonItem(
+            title: viewModel.rightBarButtonTitle,
+            style: .plain,
+            target: self,
+            action: #selector(rightBarButtonTap)
+        )
+    }
+    
+    @objc
+    func rightBarButtonTap() {
+        viewModel.rightBarButtonTap()
     }
 }
