@@ -16,6 +16,7 @@
 		1106772F28A852F600BE885F /* HomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1106772E28A852F600BE885F /* HomeViewModel.swift */; };
 		1106773228A85E4E00BE885F /* News.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1106773128A85E4E00BE885F /* News.swift */; };
 		1106773428A85E7500BE885F /* Article.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1106773328A85E7500BE885F /* Article.swift */; };
+		1106773A28A871CE00BE885F /* Date.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1106773928A871CE00BE885F /* Date.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -30,6 +31,7 @@
 		1106772E28A852F600BE885F /* HomeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewModel.swift; sourceTree = "<group>"; };
 		1106773128A85E4E00BE885F /* News.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = News.swift; sourceTree = "<group>"; };
 		1106773328A85E7500BE885F /* Article.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Article.swift; sourceTree = "<group>"; };
+		1106773928A871CE00BE885F /* Date.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Date.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -62,6 +64,7 @@
 		1106771728A851BE00BE885F /* NewsFeedApp */ = {
 			isa = PBXGroup;
 			children = (
+				1106773828A871C700BE885F /* Helpers */,
 				1106773728A85E8E00BE885F /* SupportingFiles */,
 				1106773628A85E8B00BE885F /* Views */,
 				1106773528A85E7F00BE885F /* ViewModels */,
@@ -106,6 +109,14 @@
 				1106771A28A851BE00BE885F /* SceneDelegate.swift */,
 			);
 			path = SupportingFiles;
+			sourceTree = "<group>";
+		};
+		1106773828A871C700BE885F /* Helpers */ = {
+			isa = PBXGroup;
+			children = (
+				1106773928A871CE00BE885F /* Date.swift */,
+			);
+			path = Helpers;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -181,6 +192,7 @@
 				1106773428A85E7500BE885F /* Article.swift in Sources */,
 				1106773228A85E4E00BE885F /* News.swift in Sources */,
 				1106771D28A851BE00BE885F /* HomeViewController.swift in Sources */,
+				1106773A28A871CE00BE885F /* Date.swift in Sources */,
 				1106772D28A852A300BE885F /* ArticleCell.swift in Sources */,
 				1106771928A851BE00BE885F /* AppDelegate.swift in Sources */,
 				1106772F28A852F600BE885F /* HomeViewModel.swift in Sources */,

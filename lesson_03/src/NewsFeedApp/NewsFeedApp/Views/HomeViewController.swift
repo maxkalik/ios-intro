@@ -20,8 +20,8 @@ class HomeViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        title = "News"
-        title
+        title = viewModel.title
+        navigationController?.navigationBar.prefersLargeTitles = true
         
         view.addSubview(listTableView)
         
@@ -29,6 +29,8 @@ class HomeViewController: UIViewController {
         listTableView.dataSource = self
 
         listTableView.register(ArticleCell.self, forCellReuseIdentifier: ArticleCell.identifier)
+        
+//        viewModel.getNews()
         
         setupConstrains()
     }
