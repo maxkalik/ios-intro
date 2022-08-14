@@ -8,7 +8,10 @@
 import UIKit
 
 class ArticleCell: UITableViewCell {
+    
     static let identifier: String = "NewsCell"
+    
+    var viewModel: ArticleCellViewModel?
     
     lazy var titleLabel: UILabel = {
         let label = UILabel()
@@ -56,10 +59,10 @@ class ArticleCell: UITableViewCell {
         fatalError("init(coder:) has not been implemented")
     }
     
-    func configure(article: Article) {
-        titleLabel.text = article.title
-        descriptionLabel.text = article.description
-        dateLabel.text = article.published
+    func configure(viewModel: ArticleCellViewModel) {
+        titleLabel.text = viewModel.title
+        descriptionLabel.text = viewModel.description
+        dateLabel.text = viewModel.published
     }
 }
 

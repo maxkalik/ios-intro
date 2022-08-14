@@ -7,7 +7,7 @@
 
 import UIKit
 
-class HomeViewController: UIViewController {
+final class HomeViewController: UIViewController {
 
     var viewModel: HomeViewModel
     
@@ -86,7 +86,7 @@ extension HomeViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         if let cell = tableView.dequeueReusableCell(withIdentifier: ArticleCell.identifier, for: indexPath) as? ArticleCell,
            let article = viewModel.article(at: indexPath.row) {
-            cell.configure(article: article)
+            cell.configure(viewModel: article)
             return cell
         } else {
             return UITableViewCell()

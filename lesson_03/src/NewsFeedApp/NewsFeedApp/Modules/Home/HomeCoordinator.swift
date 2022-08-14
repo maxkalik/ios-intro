@@ -20,14 +20,15 @@ final class HomeCoordinatorImplementation: HomeCoordinator {
     }
     
     func start() {
-        let viewModel = HomeViewModel()
+        let viewModel = HomeViewModelImplementation()
         viewModel.coordinatorDelegate = self
         let viewController = HomeViewController(viewModel: viewModel)
         navigationController?.pushViewController(viewController, animated: true)
     }
     
     func showArticle() {
-        let viewController = ArticleViewController()
+        let viewModel = ArticleViewModelImplementation()
+        let viewController = ArticleViewController(viewModel: viewModel)
         navigationController?.pushViewController(viewController, animated: true)
     }
 }

@@ -1,25 +1,40 @@
 //
-//  Article.swift
+//  ArticleCellViewModel.swift
 //  NewsFeedApp
 //
-//  Created by Maksim Kalik on 8/13/22.
+//  Created by Maksim Kalik on 8/14/22.
 //
 
 import Foundation
 
-struct Article: Decodable {
-    var author: String?
-    var title: String
-    var description: String?
-    var url: String
-    var publishedAt: String
+// MARK: - Protocol
+
+protocol ArticleCellViewModel {
+    var title: String { get }
+    var description: String? { get }
+    var published: String { get }
+}
+
+// MARK: - Implementation
+
+final class ArticleCellViewModelImplementation: ArticleCellViewModel {
     
-    var date: Date {
+    private let model: Article
+    
+    init(model: Article) {
+        self.model = model
+    }
+    
+    lazy var title: String = model.title
+    
+    lazy var description: String? = model.description
+    
+    private var date: Date {
         let dateFormatter = DateFormatter()
         // 2022-08-13T18:02:19Z
         // This is in ISO 8601 format, which is the most common standard
         dateFormatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ssZ"
-        let date = dateFormatter.date(from: publishedAt)
+        let date = dateFormatter.date(from: model.publishedAt)
         return date ?? Date()
     }
     
