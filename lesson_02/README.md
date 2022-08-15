@@ -1,4 +1,4 @@
-# iOS, UIKit
+# Lesson 02: iOS, UIKit, MVC
 
 ## What you will learn
 

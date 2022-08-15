@@ -1,7 +1,13 @@
-# MVVM, SwiftUI
+# Lesson 04: SwiftUI basics, SPM
 
-- Similar with MVC pattern
+The purpose of this lesson to introduce you framework SwiftUI. With the examples which we did on previous lecutres you will be able to rewrite them into SwiftUI.
 
+## What you will learn
+
+- SwiftUI basics: View protocol, Content, body, Stacks, Views etc.
+- Property wrappers: @State, @Binding, @Observable / @Published, @Environment
+- ScrollViews, List, Difference between Stack and Lazy Stack, Grids
+- 
 ## Prerequisites
 
 The student should be familiar with previous lectures:

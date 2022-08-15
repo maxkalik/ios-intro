@@ -26,7 +26,7 @@ To start this course you need to have:
 - [Lesson 01: Swift Programming Language](./lesson_01/)
 - [Lesson 02: iOS, UIKit, MVC](./lesson_02/)
 - [Lesson 03: NewsFeed App - using UIKit and MVVM+C architecture](./lesson_03/)
-- [Lesson 04: SwiftUI Basincs, SPM](./lesson_04/)
+- [Lesson 04: SwiftUI basics, SPM](./lesson_04/)
 - [Lesson 05: SwiftUI, MVVM in SwiftUI, NewsFeed App in SwiftUI](./lesson_05/)
 - [Lesson 06: Currency App using SwiftUI](./lesson_06/)
 - [Lesson 07: TODO List App using SwiftUI and Firebase](./lesson_07/)

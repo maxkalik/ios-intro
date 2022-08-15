@@ -1,4 +1,4 @@
-## UILabel with random word
+## Lesson 01: Swift Programming Language
 
 1. Create a new xCode Single View iOS App - Swift / Storyboard
 2. Add UILabel and constraint it by center of the screen
