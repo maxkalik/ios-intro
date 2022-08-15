@@ -10,6 +10,7 @@ import SwiftUI
 struct ContentView: View {
     
     @State private var word: String = ""
+    @State private var backroundColor: Color = Color.random
     
     private let words: [String] = ["xcode", "ios", "playground", "iphone", "ipdad", "device"]
     
@@ -25,6 +26,7 @@ struct ContentView: View {
             
             Button {
                 self.word = words.randomElement() ?? ""
+                self.backroundColor = Color.random
             } label: {
                 Text("Magic Button")
                     .padding()
@@ -33,12 +35,22 @@ struct ContentView: View {
             .cornerRadius(10)
         }
         .frame(maxWidth: .infinity, maxHeight: .infinity)
-        .background(Color.blue)
+        .background(backroundColor)
     }
 }
 
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
         ContentView()
+    }
+}
+
+extension Color {
+    static var random: Color {
+        return Color(
+            red: .random(in: 0...1),
+            green: .random(in: 0...1),
+            blue: .random(in: 0...1)
+        )
     }
 }
