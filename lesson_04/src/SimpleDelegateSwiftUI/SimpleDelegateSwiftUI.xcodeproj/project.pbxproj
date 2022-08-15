@@ -11,6 +11,8 @@
 		110677C928AA7C3E00BE885F /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 110677C828AA7C3E00BE885F /* ContentView.swift */; };
 		110677CB28AA7C3E00BE885F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 110677CA28AA7C3E00BE885F /* Assets.xcassets */; };
 		110677CE28AA7C3E00BE885F /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 110677CD28AA7C3E00BE885F /* Preview Assets.xcassets */; };
+		110677D528AA906C00BE885F /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 110677D428AA906C00BE885F /* LoginView.swift */; };
+		110677D728AA912100BE885F /* Modifiers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 110677D628AA912100BE885F /* Modifiers.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -19,6 +21,8 @@
 		110677C828AA7C3E00BE885F /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		110677CA28AA7C3E00BE885F /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		110677CD28AA7C3E00BE885F /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		110677D428AA906C00BE885F /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
+		110677D628AA912100BE885F /* Modifiers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Modifiers.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -53,8 +57,10 @@
 			children = (
 				110677C628AA7C3E00BE885F /* SimpleDelegateSwiftUIApp.swift */,
 				110677C828AA7C3E00BE885F /* ContentView.swift */,
+				110677D428AA906C00BE885F /* LoginView.swift */,
 				110677CA28AA7C3E00BE885F /* Assets.xcassets */,
 				110677CC28AA7C3E00BE885F /* Preview Content */,
+				110677D628AA912100BE885F /* Modifiers.swift */,
 			);
 			path = SimpleDelegateSwiftUI;
 			sourceTree = "<group>";
@@ -137,7 +143,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				110677D528AA906C00BE885F /* LoginView.swift in Sources */,
 				110677C928AA7C3E00BE885F /* ContentView.swift in Sources */,
+				110677D728AA912100BE885F /* Modifiers.swift in Sources */,
 				110677C728AA7C3E00BE885F /* SimpleDelegateSwiftUIApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
