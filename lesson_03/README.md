@@ -11,3 +11,10 @@ During the whole lecutre we will create an iOS application which fetch news from
 5. `ViewDelegate`, `CoordinatorDelegate`
 6. How to manipulate with `Date` and `Calendar`
 7. Error Handling
+
+## Prerequisites
+
+The student should be familiar with previous lectures:
+
+- [Lesson 01: Swift Programming Language](./lesson_01/)
+- [Lesson 02: iOS, UIKit, MVC](./lesson_02/)

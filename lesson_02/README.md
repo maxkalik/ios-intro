@@ -6,8 +6,14 @@
 - Tools: xCode
 - Foundation
 - MVC Architecture
-- UIKit
+- UIKit, Storyboards
 - Accessing Documentation from our code
+
+## Prerequisites
+
+The student should be familiar with previous lectures:
+
+- [Lesson 01: Swift Programming Language](./lesson_01/)
 
 ## iOS Application which you will build
 - **MagicButton** - simple button that changes backround color randomly

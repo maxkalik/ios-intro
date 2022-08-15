@@ -9,7 +9,7 @@ import UIKit
 
 class ViewController: UIViewController {
     
-//    lazy var wordLabel = UILabel()
+
 //    let words: [String] = ["xcode", "ios", "playground", "iphone", "ipdad", "device"]
     
     override func viewDidLoad() {
@@ -29,7 +29,8 @@ class ViewController: UIViewController {
             magicButton.centerXAnchor.constraint(equalTo: view.centerXAnchor),
             magicButton.centerYAnchor.constraint(equalTo: view.centerYAnchor)
         ])
-
+        
+//        let wordLabel = UILabel()
 //        wordLabel.text = words.randomElement()
 //        wordLabel.textColor = .white
 //        wordLabel.font = .systemFont(ofSize: 24, weight: .bold)
