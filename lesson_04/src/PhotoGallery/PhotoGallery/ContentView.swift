@@ -9,7 +9,7 @@ import SwiftUI
 
 struct ContentView: View {
     
-    let data = (1...100).map { "Item \($0)" }
+    private let imageNames: [String] = (1...20).map { String(format: "%02d", $0) }
     let columnsNumber: CGFloat = 3
     
     var body: some View {
@@ -23,10 +23,10 @@ struct ContentView: View {
             
             ScrollView {
                 LazyVGrid(columns: columns, spacing: 2) {
-                    ForEach(data, id: \.self) { item in
-                        Text(item)
+                    ForEach(imageNames, id: \.self) { imageName in
+                        Image(imageName)
                             .frame(width: side, height: side)
-                            .background(Color.gray)
+                            .clipped()
                     }
                 }
             }
