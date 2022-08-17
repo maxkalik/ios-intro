@@ -13,14 +13,31 @@ struct BackroundImageView: View {
     
     var body: some View {
         
-        Image(uiImage: UIImage(data: viewModel.imageData) ?? UIImage())
-            .resizable()
-            .scaledToFill()
-            .ignoresSafeArea()
-            .task {
-                await viewModel.fetchImage()
-            }
+        // 1. Using Data and UIImage
         
+//        Image(uiImage: UIImage(data: viewModel.imageData) ?? UIImage())
+//            .resizable()
+//            .scaledToFill()
+//            .ignoresSafeArea()
+//            .task {
+//                await viewModel.fetchImage()
+//            }
+        
+        
+        // 2. AsyncImage (from iOS 15) - without cashing
+        
+        AsyncImage(
+            url: URL(string: viewModel.imageURL),
+            content: { image in
+                image
+                    .resizable()
+                    .aspectRatio(contentMode: .fill)
+            },
+            placeholder: {
+                ProgressView()
+            }
+        )
+        .ignoresSafeArea()
     }
 }
 

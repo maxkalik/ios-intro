@@ -8,7 +8,9 @@
 import Foundation
 
 class CacheService {
-    // here we will store image in cache
+    // here we will store image data in cache
+    // NSData - it's an object - reference type (from objc world)
+    // Data - under the hood it's a struct - value type
     static let cache = NSCache<NSString, NSData>()
 }
 
