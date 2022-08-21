@@ -17,6 +17,8 @@ The student should be familiar with previous lectures:
 - [Lesson 02: iOS, UIKit, MVC](./lesson_02/)
 - [Lesson 03: NewsFeed App - using UIKit and MVVM+C architecture](./lesson_03/)
 
+> Many parts of SwiftUI directly build on top of existing UIKit components. Many other parts don't – they are new controls rendered by SwiftUI and not UIKit.
+
 ## iOS Application which you will build
 - **MagicButtonSwiftUI** - simple button that changes backround color randomly
   - During building this app you will learn how to start the project from scratch in SwiftUI
