@@ -10,7 +10,8 @@ import Foundation
 class NewsViewModel: ObservableObject {
     
     @Published var isLoading: Bool = true
-    @Published var errorMessage: String?
+    @Published var errorMessage: String = ""
+    @Published var shouldShowErrorMessage: Bool = false
     @Published var articles: [ArticleViewModel] = []
     
     private lazy var networkService = NetworkService()
@@ -26,10 +27,10 @@ class NewsViewModel: ObservableObject {
         return "News • " + dateFormatter.string(from: now)
     }
     
-    func getNews() {
-        if self.isLoading == false {
-            self.isLoading = true
-        }
+    private func getNews() {
+        self.shouldShowErrorMessage = false
+        self.isLoading = true
+
         Task {
             do {
                 let news = try await networkService.fetchNews()
@@ -40,6 +41,7 @@ class NewsViewModel: ObservableObject {
             } catch {
                 await MainActor.run {
                     self.isLoading = false
+                    self.shouldShowErrorMessage = true
                     if let error = error as? NetworkServiceError {
                         print("🚩", error.message)
                         self.errorMessage = error.message

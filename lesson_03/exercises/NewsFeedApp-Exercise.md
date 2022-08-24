@@ -1,6 +1,6 @@
 # Excercises: Lesson 2
 
-## Feed App
+## News Feed App
 
 1. Create your own News Feed app using https://newsapi.org
 2. News should be sorted by date

@@ -35,6 +35,13 @@ struct NewsView: View {
             }
             .navigationViewStyle(StackNavigationViewStyle())
             .listStyle(.plain)
+            .alert(isPresented: $viewModel.shouldShowErrorMessage, content: {
+                Alert(
+                    title: Text("Error"),
+                    message: Text(viewModel.errorMessage),
+                    dismissButton: .cancel()
+                )
+            })
         }
     }
 }

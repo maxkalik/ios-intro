@@ -9,12 +9,15 @@ import SwiftUI
 
 struct NewsRow: View {
     
+    @Environment(\.colorScheme) var colorScheme
+    
     let viewModel: ArticleViewModel
     
     var body: some View {
         VStack(alignment: .leading, spacing: 10) {
             Text(viewModel.title)
                 .font(.system(size: 22, weight: .bold))
+                .foregroundColor(colorScheme == .dark ? .orange : .black)
             if let description = viewModel.description {
                 Text(description)
                     .font(.system(size: 15))
