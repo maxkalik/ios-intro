@@ -41,6 +41,7 @@ struct ContentView: View {
                     Button("Right Button") { }
             )
         }
+        // we need to call it to avoid constrains yelling
         .navigationViewStyle(StackNavigationViewStyle())
         // .navigationViewStyle(.stack)
         
