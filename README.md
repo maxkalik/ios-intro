@@ -1,4 +1,4 @@
-# iOS Dev Introduction
+# iOS Dev Course
 
 **This is a crash course with a puropse to introduce ios mobile developemnt**
 
