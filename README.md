@@ -6,11 +6,13 @@ Developing applications for iOS (iPhone) using UIKit and SwiftUI.
 
 ## What you will learn
 - Swift Programming Language
-- iOS
+- iOS components
 - Foundation, UIKit and SwiftUI frameworks
 - SPM - Swift Package Manager
 - Design Strategies: MVC, MVVM architecture
 - Reactive UI
+- Usage of SwiftUI in UIKit
+- Core data, Firestore
 - Real Life application TODO list bound with Firestore.
 
 ## Prerequisites
@@ -28,5 +30,5 @@ To start this course you need to have:
 - [Lesson 03: NewsFeed App - using UIKit and MVVM+C architecture](./lesson_03/)
 - [Lesson 04: SwiftUI basics, SPM](./lesson_04/)
 - [Lesson 05: SwiftUI, MVVM in SwiftUI, NewsFeed App in SwiftUI](./lesson_05/)
-- [Lesson 06: Currency App using SwiftUI](./lesson_06/)
+- [Lesson 06: SwiftUI in UIKit. Currency App](./lesson_06/)
 - [Lesson 07: TODO List App using SwiftUI and Firebase](./lesson_07/)
