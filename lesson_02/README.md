@@ -74,3 +74,8 @@ The student should be familiar with previous lectures:
 **UIView**           - pretty heavy thing. It's using a lot of memory, because it appears when it should be in the screen but not when UIViewController was created.
 
 - UIViewController has a view.
+
+## Links
+
+- [UIKit](https://developer.apple.com/documentation/uikit)
+- [Human Interface Guidelines](https://developer.apple.com/design/human-interface-guidelines/guidelines/overview/)
