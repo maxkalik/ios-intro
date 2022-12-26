@@ -21,8 +21,9 @@
 		1117439128B37AB000B5F813 /* ArticleModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1117439028B37AAF00B5F813 /* ArticleModel.swift */; };
 		1117439A28B37B5E00B5F813 /* Configuration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1117439928B37B5E00B5F813 /* Configuration.swift */; };
 		1117439F28B37B8400B5F813 /* Date.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1117439C28B37B8400B5F813 /* Date.swift */; };
-		111743A028B37B8400B5F813 /* UIFont.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1117439D28B37B8400B5F813 /* UIFont.swift */; };
-		111743A128B37B8400B5F813 /* URLSession.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1117439E28B37B8400B5F813 /* URLSession.swift */; };
+		118A359029184A52000828F3 /* NewsAPI-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 118A358F29184A52000828F3 /* NewsAPI-Info.plist */; };
+		11F42B7C2933D3C70097ABB8 /* Kingfisher in Frameworks */ = {isa = PBXBuildFile; productRef = 11F42B7B2933D3C70097ABB8 /* Kingfisher */; };
+		11F42B7E2933DEBB0097ABB8 /* UserpickStackView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11F42B7D2933DEBB0097ABB8 /* UserpickStackView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -41,8 +42,9 @@
 		1117439028B37AAF00B5F813 /* ArticleModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArticleModel.swift; sourceTree = "<group>"; };
 		1117439928B37B5E00B5F813 /* Configuration.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Configuration.swift; sourceTree = "<group>"; };
 		1117439C28B37B8400B5F813 /* Date.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Date.swift; sourceTree = "<group>"; };
-		1117439D28B37B8400B5F813 /* UIFont.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIFont.swift; sourceTree = "<group>"; };
-		1117439E28B37B8400B5F813 /* URLSession.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = URLSession.swift; sourceTree = "<group>"; };
+		118A358F29184A52000828F3 /* NewsAPI-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "NewsAPI-Info.plist"; sourceTree = "<group>"; };
+		11F42B792933C9CB0097ABB8 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
+		11F42B7D2933DEBB0097ABB8 /* UserpickStackView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserpickStackView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -50,6 +52,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				11F42B7C2933D3C70097ABB8 /* Kingfisher in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -75,6 +78,7 @@
 		1117436C28B3770400B5F813 /* NewsFeedAppSwiftUI */ = {
 			isa = PBXGroup;
 			children = (
+				11F42B792933C9CB0097ABB8 /* Info.plist */,
 				1117439228B37AC000B5F813 /* Utils */,
 				1117438928B37A2100B5F813 /* NetworkService */,
 				1117437B28B3771000B5F813 /* Screens */,
@@ -98,6 +102,7 @@
 			children = (
 				1117437D28B378E900B5F813 /* Article */,
 				1117437C28B378E200B5F813 /* News */,
+				11F42B7D2933DEBB0097ABB8 /* UserpickStackView.swift */,
 			);
 			path = Screens;
 			sourceTree = "<group>";
@@ -153,6 +158,7 @@
 			children = (
 				1117439B28B37B6600B5F813 /* Extensions */,
 				1117439928B37B5E00B5F813 /* Configuration.swift */,
+				118A358F29184A52000828F3 /* NewsAPI-Info.plist */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -161,8 +167,6 @@
 			isa = PBXGroup;
 			children = (
 				1117439C28B37B8400B5F813 /* Date.swift */,
-				1117439D28B37B8400B5F813 /* UIFont.swift */,
-				1117439E28B37B8400B5F813 /* URLSession.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -191,6 +195,9 @@
 			dependencies = (
 			);
 			name = NewsFeedAppSwiftUI;
+			packageProductDependencies = (
+				11F42B7B2933D3C70097ABB8 /* Kingfisher */,
+			);
 			productName = NewsFeedAppSwiftUI;
 			productReference = 1117436A28B3770400B5F813 /* NewsFeedAppSwiftUI.app */;
 			productType = "com.apple.product-type.application";
@@ -217,8 +224,12 @@
 			knownRegions = (
 				en,
 				Base,
+				"lv-LV",
 			);
 			mainGroup = 1117436128B3770400B5F813;
+			packageReferences = (
+				11F42B7A2933D3C70097ABB8 /* XCRemoteSwiftPackageReference "Kingfisher" */,
+			);
 			productRefGroup = 1117436B28B3770400B5F813 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -235,6 +246,7 @@
 			files = (
 				1117437528B3770500B5F813 /* Preview Assets.xcassets in Resources */,
 				1117437228B3770500B5F813 /* Assets.xcassets in Resources */,
+				118A359029184A52000828F3 /* NewsAPI-Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -253,9 +265,8 @@
 				1117439128B37AB000B5F813 /* ArticleModel.swift in Sources */,
 				1117438728B3791900B5F813 /* ArticleViewModel.swift in Sources */,
 				1117439F28B37B8400B5F813 /* Date.swift in Sources */,
-				111743A128B37B8400B5F813 /* URLSession.swift in Sources */,
 				1117437F28B378F200B5F813 /* ArticleView.swift in Sources */,
-				111743A028B37B8400B5F813 /* UIFont.swift in Sources */,
+				11F42B7E2933DEBB0097ABB8 /* UserpickStackView.swift in Sources */,
 				1117436E28B3770400B5F813 /* NewsFeedAppSwiftUIApp.swift in Sources */,
 				1117438B28B37A6000B5F813 /* NetworkService.swift in Sources */,
 				1117439A28B37B5E00B5F813 /* Configuration.swift in Sources */,
@@ -387,14 +398,16 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"NewsFeedAppSwiftUI/Preview Content\"";
-				DEVELOPMENT_TEAM = W3W5448YAM;
+				DEVELOPMENT_TEAM = P353H6D448;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = NewsFeedAppSwiftUI/Info.plist;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 14.5;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -416,14 +429,16 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"NewsFeedAppSwiftUI/Preview Content\"";
-				DEVELOPMENT_TEAM = W3W5448YAM;
+				DEVELOPMENT_TEAM = P353H6D448;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = NewsFeedAppSwiftUI/Info.plist;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 14.5;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -459,6 +474,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		11F42B7A2933D3C70097ABB8 /* XCRemoteSwiftPackageReference "Kingfisher" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/onevcat/Kingfisher.git";
+			requirement = {
+				branch = master;
+				kind = branch;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		11F42B7B2933D3C70097ABB8 /* Kingfisher */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 11F42B7A2933D3C70097ABB8 /* XCRemoteSwiftPackageReference "Kingfisher" */;
+			productName = Kingfisher;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 1117436228B3770400B5F813 /* Project object */;
 }

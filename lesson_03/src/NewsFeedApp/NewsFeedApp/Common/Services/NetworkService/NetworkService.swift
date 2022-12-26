@@ -26,7 +26,9 @@ final class NetworkService {
         urlComponents.queryItems = Configuration.queries.map {
             URLQueryItem(name: $0.key, value: $0.value)
         }
+
         return urlComponents.url
+//        return URL(string: "https://newsapi.org/v2/everything?q=apple&from=2022-10-28&to=2022-10-28&sortBy=popularity&apiKey=9e464d6eb08644e3acb3efaf9e5c1ae7")
     }()
     
     func fetchNews(completion: @escaping (Result<News, NetworkServiceError>) -> Void) {
@@ -34,6 +36,8 @@ final class NetworkService {
             completion(.failure(.endpointError))
             return
         }
+        
+        print(url)
         
         let session = URLSession.shared
         session.dataTask(with: url) { result in

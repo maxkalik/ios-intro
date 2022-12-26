@@ -44,6 +44,11 @@ final class HomeViewController: UIViewController {
         setupConstrains()
         viewModel.getNews()
     }
+    
+    override func traitCollectionDidChange(_ previousTraitCollection: UITraitCollection?) {
+        print("is light mode", previousTraitCollection?.userInterfaceStyle == .light)
+        print("is landscape", UIDevice.current.orientation.isLandscape)
+    }
 }
 
 // MARK: - Setup Views
@@ -73,6 +78,15 @@ extension HomeViewController: UITableViewDelegate {
     // Make height of the row based on content
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         UITableView.automaticDimension
+    }
+    
+    func scrollViewDidScroll(_ scrollView: UIScrollView) {
+        guard activityIndicatorView.isAnimating == false else { return }
+        let position = scrollView.contentOffset.y
+        if position > (scrollView.contentSize.height - tableView.frame.size.height) {
+            print("== Start fetching another collection", scrollView.contentSize.height, tableView.frame.size.height)
+            // tableView.tableFooterView = UIView() // << add spinner to the footer
+        }
     }
 }
 

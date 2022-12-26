@@ -6,16 +6,24 @@
 //
 
 import UIKit
-var list: [String] = "POET GESTURAL VILLAGE COLOSSAL FINANCIAL ABERRANT ABATTOIR LONER HOMICIDE FAMILY STEEL BARNBURNER PROMISED GOOD-BYE PICNIC CALLOUS CLIMAX SUPERFICIAL TRITE BRUSH LOSS BEEKEEPER ELFIN AUNT DISCLOSURE BLUSHING COWARDLY UNCOVERED DAUGHTER HOOLIGAN FALLACIOUS BLUEPRINT ACHE PUSHY RACKET COSTUMED ARMS EASTERN SPEND GIVE INNER CROOKED MAJESTIC DIAMETRIC MATURE REST PARTICIPATE MIGRATE DESCRIPTION COAL MOW MOLTEN BLINDING GUTS DETAILS EGGS RECALL FRIGHTENING UNSUITABLE REMARKABLE LAMP WATER FUSE PRESERVE SIGN DISTURBANCE SADDLE RUTHLESS GODLESS DASHING UGLY XENOPHOBIC UNADVISED OPERATE FIREARM ASHES ILLEGAL MOTH PITY AGONIZING ABSENCE TWO BLEAKNESS CINNAMON HACK HIRSUTE SILENT CASE NERVE ETERNITY DISTORT THRONE ABIDE CLUBFOOT CURSED DISTANCE COMET OVERT SERUM CRUCIFIER"
-        .components(separatedBy: " ")
+import Combine
 
 class ViewController: UIViewController {
 
-    lazy var listTableView: UITableView = {
+    private lazy var list: [String] = []
+    private lazy var viewModel = ViewModel()
+    
+    private lazy var listTableView: UITableView = {
         let tableView = UITableView(frame: .zero)
         tableView.translatesAutoresizingMaskIntoConstraints = false
         return tableView
     }()
+    
+    // If only one observer in the class
+    // private var observer: AnyCancellable?
+    
+    // If several observers
+    private lazy var observers: [AnyCancellable] = []
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -33,6 +41,45 @@ class ViewController: UIViewController {
             listTableView.bottomAnchor.constraint(equalTo: view.bottomAnchor),
             listTableView.leadingAnchor.constraint(equalTo: view.leadingAnchor)
         ])
+        
+        // MARK: - Before
+        // fetchUsingClosure()
+        
+        // MARK: - After
+        fetchUsingCombine()
+    }
+}
+
+// MARK: - Fetching
+
+extension ViewController {
+    func fetchUsingClosure() {
+        viewModel.fetchData { values in
+            self.list = values
+            self.listTableView.reloadData()
+        }
+    }
+    
+    func fetchUsingCombine() {
+        // if only one observer
+        // observer = viewModel.fetchData()
+        viewModel.fetchData()
+            .receive(on: DispatchQueue.main)
+            .sink(receiveCompletion: { completion in
+                switch completion {
+                case .finished:
+                    // handle if finished
+                    break
+                case .failure(let error):
+                    // handle if error
+                    print(error.localizedDescription)
+                }
+            }, receiveValue: { list in
+                self.list = list
+                self.listTableView.reloadData()
+            })
+            // if several observers
+            .store(in: &observers)
     }
 }
 
@@ -41,14 +88,6 @@ class ViewController: UIViewController {
 extension ViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         40
-    }
-    
-    func scrollViewDidScroll(_ scrollView: UIScrollView) {
-        let position = scrollView.contentOffset.y
-        
-        if position > (scrollView.contentSize.height - listTableView.frame.size.height) {
-            print("***** load data")
-        }
     }
 }
 
@@ -62,6 +101,10 @@ extension ViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         if let cell = tableView.dequeueReusableCell(withIdentifier: ListCell.identifier, for: indexPath) as? ListCell {
             cell.configure(title: list[indexPath.row])
+            cell.action.sink { value in
+                print("cell button tap with value:", value)
+            }
+            .store(in: &observers)
             return cell
         } else {
             return UITableViewCell()

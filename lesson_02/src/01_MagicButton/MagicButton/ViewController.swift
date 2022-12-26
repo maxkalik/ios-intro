@@ -45,6 +45,10 @@ class ViewController: UIViewController {
         changeBackgroundColor()
     }
     
+    override func traitCollectionDidChange(_ previousTraitCollection: UITraitCollection?) {
+        print("is landscape", UIDevice.current.orientation.isLandscape)
+    }
+    
     @objc
     func onTap() {
         changeBackgroundColor()

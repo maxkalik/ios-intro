@@ -27,7 +27,7 @@ class ViewController: UIViewController {
         collectionView.delegate = self
         collectionView.dataSource = self
         
-        collectionView.register(PhotoCell.self, forCellWithReuseIdentifier: PhotoCell.identifier)
+//        collectionView.register(PhotoCell.self, forCellWithReuseIdentifier: PhotoCell.identifier)
     }
     
     override func viewDidLayoutSubviews() {

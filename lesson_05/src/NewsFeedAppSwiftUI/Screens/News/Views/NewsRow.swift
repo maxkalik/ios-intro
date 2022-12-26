@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import Kingfisher
 
 struct NewsRow: View {
     
@@ -14,18 +15,35 @@ struct NewsRow: View {
     let viewModel: ArticleViewModel
     
     var body: some View {
-        VStack(alignment: .leading, spacing: 10) {
-            Text(viewModel.title)
-                .font(.system(size: 22, weight: .bold))
-                .foregroundColor(colorScheme == .dark ? .orange : .black)
-            if let description = viewModel.description {
-                Text(description)
-                    .font(.system(size: 15))
+        HStack(spacing: 10) {
+
+//            KFImage(viewModel.imageUrl)
+//                .resizable()
+//                .placeholder {
+//                    ProgressView()
+//                }
+//                .frame(maxWidth: 64, maxHeight: 64)
+//                .aspectRatio(contentMode: .fill)
+//                .cornerRadius(32)
+            
+            UserpicStackView(userpicURLs: [viewModel.imageUrl, nil], width: 76)
+                .padding(.leading, 10)
+                .animation(nil)
+            
+            VStack(alignment: .leading, spacing: 5) {
+                
+                Text(viewModel.title)
+                    .font(.system(size: 14, weight: .medium))
+                    .foregroundColor(colorScheme == .dark ? .orange : .black)
+                //            if let description = viewModel.description {
+                //                Text(description)
+                //                    .font(.system(size: 15))
+                //            }
+                Text(viewModel.published)
+                    .font(.system(size: 12))
+                    .foregroundColor(.gray)
             }
-            Text(viewModel.published)
-                .font(.system(size: 15))
-                .foregroundColor(.gray)
         }
-        .padding(.vertical, 10)
+//        .padding(.vertical, 5)
     }
 }

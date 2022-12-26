@@ -48,4 +48,9 @@ class ArticleViewModel: ObservableObject, Identifiable {
             return "Just now"
         }
     }
+    
+    var imageUrl: URL? {
+        guard let urlString = self.model.urlToImage else { return nil }
+        return URL(string: urlString)
+    }
 }
