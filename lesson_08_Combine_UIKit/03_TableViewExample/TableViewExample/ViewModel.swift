@@ -21,6 +21,7 @@ final class ViewModel {
     }
     
     // MARK: - After
+    // Future - a Publisher with promise (success, failure)
     func fetchData() -> Future<[String], Error> {
         Future { promise in
             DispatchQueue.main.asyncAfter(deadline: .now() + 3) {

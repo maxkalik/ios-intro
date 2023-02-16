@@ -19,9 +19,10 @@ class ViewController: UIViewController {
         return tableView
     }()
     
+    // MARK: - Subscriber
     // If only one observer in the class
     // private var observer: AnyCancellable?
-    
+
     // If several observers
     private lazy var observers: [AnyCancellable] = []
     
@@ -101,10 +102,11 @@ extension ViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         if let cell = tableView.dequeueReusableCell(withIdentifier: ListCell.identifier, for: indexPath) as? ListCell {
             cell.configure(title: list[indexPath.row])
-            cell.action.sink { value in
-                print("cell button tap with value:", value)
-            }
-            .store(in: &observers)
+            cell.action
+                .sink { value in
+                    print("cell button tap with value:", value)
+                }
+                .store(in: &observers)
             return cell
         } else {
             return UITableViewCell()
