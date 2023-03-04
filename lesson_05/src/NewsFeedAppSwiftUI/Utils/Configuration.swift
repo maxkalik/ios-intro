@@ -14,7 +14,7 @@ struct Configuration {
     static let path: String = "/v2/everything"
     static let queries: [String: String] = [
         "q": "apple",
-        "from": "2022-11-27",
+//        "from": "2023-11-27",
         "sortBy": "popularity"
     ]
 }
